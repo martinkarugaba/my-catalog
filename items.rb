@@ -1,11 +1,11 @@
 class Item {
-    def initialize(genre, author, source, label, date, archived: false){
+    def initialize(genre, author, source, label, date, archived: false)
         @genre = genre
         @author = author
         @source = source
         @publish_date = date
         @archived = archived
-    }
+    end
 
     def can_be_archived?()
         @archived
