@@ -1,4 +1,4 @@
-require_relative "parent_item"
+require_relative 'parent_item'
 
 class Item < ParentItem
   def initialize(genre, author, source, label, date)
