@@ -1,8 +1,8 @@
 class ParentItem
   attr_accessor :source, :archived
 
-  def initialize(source, archived: false)
+  def initialize(source, **options)
     @source = source
-    @archived = archived
+    @archived = options.fetch(:archived, false)
   end
 end
