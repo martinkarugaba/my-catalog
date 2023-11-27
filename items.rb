@@ -1,4 +1,4 @@
-class Item {
+class Item
     def initialize(genre, author, source, label, date, archived: false)
         @genre = genre
         @author = author
@@ -13,4 +13,4 @@ class Item {
 
     def move_to_archive()
     end
-}
+end
