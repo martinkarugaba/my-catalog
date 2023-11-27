@@ -1,5 +1,6 @@
 class ParentItem
-  def initialize(source, archived)
+    attr_accessor :source, :archived
+  def initialize(source, archived = false)
     @source = source
     @archived = archived
   end

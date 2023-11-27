@@ -2,7 +2,7 @@ require_relative 'parent_item'
 
 class Item < ParentItem
   def initialize(genre, author, source, label, date)
-    super(source, false)
+    super(source, true)
     @id = rand(1..1000)
     @genre = genre
     @author = author
