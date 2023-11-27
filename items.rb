@@ -10,12 +10,10 @@ class Item < ParentItem
     @publish_date = date
   end
 
-  def can_be_archived?()
-  end
+  def can_be_archived?() end
 
-  def move_to_archive()
-  end
+  def move_to_archive() end
 end
 
-item = Item.new('music', 'collins', 'source', 'readng', "2018-01-03")
+item = Item.new('music', 'collins', 'source', 'readng', '2018-01-03')
 p item

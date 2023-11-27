@@ -3,6 +3,4 @@ class ParentItem
         @source = source
         @archived = archived
     end
-
-
 end
