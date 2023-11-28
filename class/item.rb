@@ -37,8 +37,8 @@ class Item
        return @archived = false
     else
       if (current_date.year - @publish_date) / 365.5 >= 10
-       return @archived = true
-      else return @archived = false
+        @archived = true
+      else @archived = false
       end
     end
   end
@@ -46,6 +46,4 @@ end
 
 item = Item.new('2003-02-03')
 p item
-
-
 
