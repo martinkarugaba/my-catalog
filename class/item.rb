@@ -29,14 +29,16 @@ class Item
     @archived = true
   end
 
-  def can_be_archived? # we still have to look at this method when everthing else is fully understood
+  # we still have to look at this method when everthing else is fully understood
+
+  def can_be_archived?
     current_date = Date.today
     if @publish_date.nil?
-      @archived = false
+       return @archived = false
     else
       if (current_date.year - @publish_date) / 365.5 >= 10
-       @archived = true
-      else @archived = false
+       return @archived = true
+      else return @archived = false
       end
     end
   end
