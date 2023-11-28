@@ -2,7 +2,7 @@
 #replace your code with new content and remove the comment
 
 class BookSpec
-    def initialize
-        @sample = []
-    end
+  def initialize
+    @sample = []
+  end
 end
