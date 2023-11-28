@@ -34,14 +34,14 @@ class Item
   def can_be_archived?
     current_date = Date.today
     if @publish_date.nil?
-      @archived = false
-    elsif (current_date.year - @publish_date) / 365.5 >= 10
-      @archived = true
-    else @archived = false
+      return @archived = false
+    elsif (current_date - @publish_date.to_i / 365.5) >= 10
+      return @archived = true
+    else
+      return @archived = false
     end
   end
 end
 
 item = Item.new('2003-02-03')
-p item
-
+p item.can_be_archived?
