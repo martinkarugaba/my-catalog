@@ -1,3 +1,5 @@
+require 'date'
+
 class Item
   attr_accessor :genres, :authors, :labels, :source, :publish_date, :archived
   attr_reader :id
@@ -27,7 +29,18 @@ class Item
     @archived = true
   end
 
-  def can_be_archived?
-    Date.today.year - @publish_date.year > 10
+  def can_be_archived? # we still have to look at this method when everthing else is fully understood
+    current_date = Date.today
+    if @publish_date.nil?
+      @archived = false
+    else
+      if (current_date.year - @publish_date) / 365.5 >= 10
+       @archived = true
+      else @archived = false
+      end
+    end
   end
 end
+
+
+
