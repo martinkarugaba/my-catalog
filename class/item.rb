@@ -6,7 +6,7 @@ class Item
 
   def initialize(publish_date, archived: false)
     @id = Random.rand(1..1000)
-    @publish_date = Date.parse(publish_date)
+    @publish_date = publish_date
     @archived = archived
   end
 
@@ -41,6 +41,9 @@ class Item
     end
   end
 end
+
+item = Item.new('2003-02-03')
+p item
 
 
 
