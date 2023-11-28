@@ -34,12 +34,10 @@ class Item
   def can_be_archived?
     current_date = Date.today
     if @publish_date.nil?
-       return @archived = false
-    else
-      if (current_date.year - @publish_date) / 365.5 >= 10
-        @archived = true
-      else @archived = false
-      end
+      @archived = false
+    elsif (current_date.year - @publish_date) / 365.5 >= 10
+      @archived = true
+    else @archived = false
     end
   end
 end
