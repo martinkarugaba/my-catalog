@@ -35,7 +35,7 @@ class Item
     current_date = Date.today
     @archived = if @publish_date.nil?
                   false
-                else 
+                else
                   days_difference = current_date.year - @publish_date.to_i
                   years_difference = days_difference / 365
                   years_difference >= 10
