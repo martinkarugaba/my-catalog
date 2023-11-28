@@ -35,7 +35,7 @@ class Item
     current_date = Date.today
     if @publish_date.nil?
       @archived = false
-    elsif (current_date - @publish_date.to_i / 365.5) >= 10
+    elsif current_date - @publish_date.to_i /  365.5 >= 10
       @archived = true
     else
       @archived = false
