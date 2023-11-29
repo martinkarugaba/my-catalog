@@ -113,6 +113,5 @@ class Main
   end
 end
 
-# Run the application
 app = Main.new
 app.start
