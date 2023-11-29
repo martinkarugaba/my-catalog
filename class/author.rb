@@ -9,10 +9,11 @@ class Author
     @first_name = first_name
     @last_name = last_name
     @items = []
-    instance = Item.new(publish_date)
   end
 
-  def add_item(instance)
+  def add_item(publish_date)
+    instance = Item.new(publish_date)
     @items.push(instance)
   end
 end
+
