@@ -9,7 +9,6 @@ class Book
   private
 
   def can_be_archived?
-    # implementation goes here
-    # return true or false based on some condition
+    super || @cover_state == 'bad'
   end
 end
