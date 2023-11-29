@@ -8,7 +8,7 @@ class Game < Item
   end
 end
 
-game = Game.new(true, '2023-02-12') 
+game = Game.new(true, '2023-02-12')
 puts game.can_be_archived?
 
 # run this file to check
