@@ -33,10 +33,11 @@ class Item
 
   def can_be_archived?
     current_date = Date.today
-    @archived = if @publish_date.nil?
+    @archived = if @publish_date.nil? || !@publish_date.is_a?(String)
                   false
                 else
-                  days_difference = current_date.year - @publish_date.to_i
+                  days_difference = (current_date - Date.parse(@publish_date))
+                  puts days_difference
                   years_difference = days_difference / 365
                   years_difference >= 10
                 end
