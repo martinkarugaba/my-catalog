@@ -33,3 +33,6 @@ class Item
     Date.today.year - @publish_date.year > 10
   end
 end
+
+item1 = Item.new("2023-04-12")
+p item1
