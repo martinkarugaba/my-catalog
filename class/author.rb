@@ -16,4 +16,3 @@ class Author
     @items.push(instance)
   end
 end
-
