@@ -6,14 +6,10 @@ class Book
     @cover_state = cover_state
   end
 
+  private
+
   def can_be_archived?
     # implementation goes here
     # return true or false based on some condition
-  end
-
-  private
-
-  def some_private_method
-    # implementation goes here
   end
 end
