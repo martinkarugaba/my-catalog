@@ -34,5 +34,5 @@ class Item
   end
 end
 
-item1 = Item.new("2023-04-12")
+item1 = Item.new('2023-04-12')
 p item1
