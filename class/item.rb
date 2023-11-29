@@ -29,8 +29,6 @@ class Item
     @archived = true
   end
 
-  # we still have to look at this method when everthing else is fully understood
-
   def can_be_archived?
     current_date = Date.today
     @archived = if @publish_date.nil? || !@publish_date.is_a?(String)
@@ -42,4 +40,3 @@ class Item
                 end
   end
 end
-

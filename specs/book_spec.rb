@@ -1,8 +1,10 @@
-# linter reported an empty file so  i have just added to code to avoid the error
-# replace your code with new content and remove the comment
+require_relative '../book'
 
-class BookSpec
-  def initialize
-    @sample = []
+describe Book do
+  describe '#initialize' do
+    it 'creates a new book object' do
+      book = Book.new('Title', 'Author', 2022)
+      expect(book).to be_instance_of(Book)
+    end
   end
 end
