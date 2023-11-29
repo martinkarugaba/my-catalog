@@ -1,7 +1,11 @@
-class Label
-  attr_accessor :title, :color
+require_relative 'item'
+
+class Label < Item
+  attr_reader :id
+  attr_accessor :items, :title, :color
 
   def initialize(title, color)
+    super()
     @id = rand(1..1000)
     @title = title
     @color = color
@@ -9,11 +13,7 @@ class Label
   end
 
   def add_item(item)
-    @items << item unless @items.include?(item)
-    item.label = self unless item.labels.include?(self)
+    @items << item
+    item.label = self
   end
-
-  private
-
-  attr_reader :id, :items
 end
