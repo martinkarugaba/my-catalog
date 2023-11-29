@@ -1,3 +1,5 @@
+require 'date'
+
 class Item
   attr_accessor :genres, :authors, :labels, :source, :publish_date, :archived
   attr_reader :id
@@ -31,3 +33,6 @@ class Item
     Date.today.year - @publish_date.year > 10
   end
 end
+
+item1 = Item.new("2023-04-12")
+p item1
