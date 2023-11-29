@@ -8,7 +8,8 @@ class Game < Item
   end
 end
 
-game = Game.new(true, '2023-02-12') # I have created this game instance of the game class to test only
-p game
-# p game.can_be_archived? To test if this method (can_be_archived) had been properly inherited,
-# remove the comment and run the file
+game = Game.new(true, '2023-02-12') 
+puts game.can_be_archived?
+
+# run this file to check
+# That the can_be_archived method is successfully called

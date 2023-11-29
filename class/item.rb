@@ -37,12 +37,9 @@ class Item
                   false
                 else
                   days_difference = (current_date - Date.parse(@publish_date))
-                  puts days_difference
                   years_difference = days_difference / 365
                   years_difference >= 10
                 end
   end
 end
 
-item = Item.new('2003-02-03')
-p item.can_be_archived?
