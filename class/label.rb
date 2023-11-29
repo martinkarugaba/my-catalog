@@ -1,11 +1,8 @@
-require_relative 'item'
-
-class Label < Item
+class Label
   attr_reader :id
   attr_accessor :items, :title, :color
 
   def initialize(title, color)
-    super()
     @id = rand(1..1000)
     @title = title
     @color = color
