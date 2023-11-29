@@ -1,5 +1,5 @@
 class Label
-  attr_accessor :id, :title, :color, :items
+  attr_accessor :title, :color
 
   def initialize(id, title, color)
     @id = id
@@ -12,4 +12,8 @@ class Label
     @items << item unless @items.include?(item)
     item.label = self unless item.labels.include?(self)
   end
+
+  private
+
+  attr_reader :id, :items
 end
