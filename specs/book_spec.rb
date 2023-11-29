@@ -1,8 +1,24 @@
-# linter reported an empty file so  i have just added to code to avoid the error
-# replace your code with new content and remove the comment
+require 'rspec'
+require_relative 'book'
 
-class BookSpec
-  def initialize
-    @sample = []
+describe Book do
+  let(:book) { Book.new('Publisher', cover_state) }
+
+  describe '#can_be_archived?' do
+    context 'when cover_state is bad' do
+      let(:cover_state) { 'bad' }
+
+      it 'returns true' do
+        expect(book.send(:can_be_archived?)).to eq(true)
+      end
+    end
+
+    context 'when cover_state is not bad' do
+      let(:cover_state) { 'good' }
+
+      it 'returns false' do
+        expect(book.send(:can_be_archived?)).to eq(false)
+      end
+    end
   end
 end
