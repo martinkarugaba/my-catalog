@@ -1,7 +1,7 @@
 require_relative 'item'
 
 class Author
-  attr_reader :id,
+  attr_reader :id
   attr_accessor :first_name, :last_name, :items
 
   def initialize(first_name, last_name)
@@ -15,7 +15,3 @@ class Author
     @items << Item.new(publish_date)
   end
 end
-
-# author = Author.new('collins', 'Enoh')
-# p author.id
-# p author.add_item('2004-03-03')
