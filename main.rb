@@ -1,3 +1,6 @@
+require_relative 'app'
+require_relative 'refactor'
+
 def main
   puts 'Welcome to the Catalog of my things App!'
   puts '------------------------------------'
