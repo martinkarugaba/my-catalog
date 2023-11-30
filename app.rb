@@ -16,6 +16,7 @@ class App
     @books = []
     @music_albums = []
     @genres = []
+    @movie = []
   end
 
   def add_label(title, color)
@@ -98,6 +99,10 @@ class App
     game = Game.new(publish_date, multiplayer, last_time)
     @games << game
     puts 'The Game is added successfully'
+  end
+
+  def add_movie
+    
   end
 
   def list_games

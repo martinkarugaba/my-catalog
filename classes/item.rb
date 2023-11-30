@@ -4,7 +4,7 @@ class Item
   attr_accessor :genres, :authors, :labels, :source, :publish_date, :archived
   attr_reader :id
 
-  def initialize(publish_date, archived: false)
+  def initialize(publish_date, archived)
     @id = Random.rand(1..1000)
     @publish_date = publish_date
     @archived = archived
@@ -33,7 +33,7 @@ class Item
     current_date = Date.today
     @archived = if @publish_date.nil? || !@publish_date.is_a?(String)
                   false
-                else
+                elsif
                   days_difference = (current_date - Date.parse(@publish_date))
                   years_difference = days_difference / 365
                   years_difference >= 10
