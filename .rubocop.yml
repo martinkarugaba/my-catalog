@@ -3,22 +3,24 @@ AllCops:
   Exclude:
     - "Guardfile"
     - "Rakefile"
+    - 'main.rb'
+    - 'app.rb'
     - "node_modules/**/*"
 
   DisplayCopNames: true
 
 Layout/LineLength:
-  Max: 
+  Max: 120
 Metrics/MethodLength:
-  Max: 50
+  Max: 20
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
-  Max: 
+  Max: 150
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
-  Max: 50
-  
+  Max: 30
+
 
 Style/Documentation:
   Enabled: false
