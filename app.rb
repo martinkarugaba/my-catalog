@@ -2,7 +2,7 @@ require_relative 'classes/game'
 require_relative 'classes/author'
 require_relative 'classes/book'
 require_relative 'classes/label'
-require_relative 'classes/music'
+require_relative 'classes/musicalbum'
 require_relative 'classes/genre'
 require 'json'
 
@@ -130,7 +130,7 @@ class App
     puts 'The Music Album is added successfully ✅🎵'
     puts '--------------------------------------'
     puts ' '
-  end  
+  end
 
   def list_all_music_albums
     puts 'List of all music albums:'
@@ -139,14 +139,14 @@ class App
       puts '-------------------------'
     end
   end
-  
+
   def list_all_genres
     puts 'List all genres:'
     @genres.each do |genre|
-      puts "#{genre.name}"
+      puts genre.name
       puts '............'
     end
-  end  
+  end
 
   def save_data
     save_games
@@ -281,13 +281,12 @@ class App
       file.write(JSON.generate(data))
     end
   end
-  
 
   def load_genres
     if File.exist?('data/genre.json')
       data = JSON.parse(File.read('data/genre.json'))
       @genres = data.map { |genre_data| Genre.new(genre_data['name']) }
-  
+
       @music_albums.each do |music_album|
         genre_name = music_album.genre.name
         loaded_genre = @genres.find { |genre| genre.name == genre_name }
@@ -334,5 +333,3 @@ class App
     end
   end
 end
-
-
