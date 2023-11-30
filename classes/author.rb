@@ -12,6 +12,7 @@ class Author
   end
 
   def add_item(publish_date)
-    @items << Item.new(publish_date)
+    instance = Item.new(publish_date)
+    @items.push(instance)
   end
 end
