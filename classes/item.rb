@@ -33,8 +33,7 @@ class Item
     current_date = Date.today
     @archived = if @publish_date.nil? || !@publish_date.is_a?(String)
                   false
-                elsif
-                  days_difference = (current_date - Date.parse(@publish_date))
+                elsif (days_difference = (current_date - Date.parse(@publish_date)))            
                   years_difference = days_difference / 365
                   years_difference >= 10
                 end

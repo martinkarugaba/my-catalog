@@ -10,8 +10,5 @@ class Movie < Item
 
   def can_be_archived?
     super || @silent
-  end   
+  end
 end
-
-movie = Movie.new(true, '2004-03-04', false)
-p movie.can_be_archived?
