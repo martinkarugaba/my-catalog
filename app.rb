@@ -4,10 +4,11 @@ require_relative 'classes/book'
 require_relative 'classes/label'
 require_relative 'classes/musicalbum'
 require_relative 'classes/genre'
+require_relative 'classes/movie'
 require 'json'
 
 class App
-  attr_accessor :games, :authors, :labels, :books, :music_albums, :genres
+  attr_accessor :games, :authors, :labels, :books, :music_albums, :genres, :movies
 
   def initialize
     @games = []
@@ -16,7 +17,7 @@ class App
     @books = []
     @music_albums = []
     @genres = []
-    @movie = []
+    @movies = []
   end
 
   def add_label(title, color)
@@ -102,7 +103,28 @@ class App
   end
 
   def add_movie
-    
+    print 'Is movie Silent?(Y/N)'
+    silent = gets.chomp
+    silent == "Y.lowercase" ? silent = true : silent = false
+    print 'Published Date? : '
+    publish_date = gets.chomp
+    movie = Movie.new(silent, publish_date, archived=false)
+    @movies << movie
+    puts "Movie is added successfully"
+    puts ""
+  end
+
+  def list_all_movies
+    puts 'No Movies Added' if @movies.empty?
+    @movies.each_with_index do |movie, index|
+      print "movie #{index + 1}. "
+      print ''
+      print " Silent: #{movie.silent}, "
+      print ""
+      print " Publish Date #{movie.publish_date}."
+      puts ''
+      puts ''
+    end
   end
 
   def list_games

@@ -15,14 +15,16 @@ def main
     puts '     1. 📖  List all books'
     puts '     2. 💿  List all music albums'
     puts '     3. 🎮  List of games'
-    puts '     4. 🏷️   List all labels'
+    puts '     4. 🏷️  List all labels'
     puts '     5. 📑  List all genres'
     puts '     6. 🙏  List all authors'
-    puts '     7. 📖  Add a book'
-    puts '     8. 💿  Add a music album'
-    puts '     9. 🎮  Add a game'
-    puts '     10.🙏  Add an author'
-    puts '     11.🚪  Exit'
+    puts '     7. 📖  List all movies'
+    puts '     8       Add a book'
+    puts '     9. 💿  Add a music album'
+    puts '     10      Add movie'
+    puts '     11. 🎮 Add a game'
+    puts '     12.🙏  Add an author'
+    puts '     13.🚪  Exit'
 
     options = gets.chomp.to_i
 
@@ -40,14 +42,18 @@ def main
     when 6
       app.list_authors
     when 7
-      refactor.add_book
+      app.list_all_movies
     when 8
-      app.add_music_album
+      refactor.add_book
     when 9
-      app.add_game
+      app.add_music_album
     when 10
-      app.add_author
+      app.add_movie
     when 11
+      app.add_game
+    when 12
+      app.add_author
+    when 13
       app.save_data
       break
     else

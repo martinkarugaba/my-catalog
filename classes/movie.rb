@@ -5,7 +5,7 @@ class Movie < Item
 
   def initialize(silent, publish_date, archived)
     super(publish_date, archived)
-    @silet = silent
+    @silent = silent
   end
 
   def can_be_archived?
