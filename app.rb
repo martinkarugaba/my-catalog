@@ -174,13 +174,18 @@ class App
   private
 
   def load_books
-    if File.exist?('data/book.json')
+  if File.exist?('data/book.json')
+    begin
       data = JSON.parse(File.read('data/book.json'))
       @books = data.map { |book| Book.new(book['publish_date'], book['publisher'], book['cover_state']) }
-    else
-      []
+    rescue JSON::ParserError => e
+      puts "Failed to parse books: #{e.message}"
+      @books = []
     end
+  else
+    @books = []
   end
+end
 
   def save_books
     File.open('data/book.json', 'w') do |file|
