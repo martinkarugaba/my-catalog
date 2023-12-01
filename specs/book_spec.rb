@@ -48,7 +48,9 @@ describe App do
       app.add_book(book)
       app.list_all_books
       expect($stdout.string).to include('1-[Book], ID: ')
-      expect($stdout.string).to include(', Publisher: Publisher, Publish Date: 2022-01-01, Cover State: Cover State, Archived: ')
+      expect($stdout.string).to include(
+        ', Publisher: Publisher, Publish Date: 2022-01-01, Cover State: Cover State, Archived: '
+      )
     end
   end
 end
@@ -118,7 +120,8 @@ describe App do
 
       context 'when the file content is valid JSON' do
         before do
-          allow(JSON).to receive(:parse).and_return([{'publish_date' => '2022-01-01', 'publisher' => 'Publisher', 'cover_state' => 'Cover State'}])
+          allow(JSON).to receive(:parse).and_return([{ 'publish_date' => '2022-01-01', 'publisher' => 'Publisher',
+                                                       'cover_state' => 'Cover State' }])
         end
 
         it 'loads books from the file' do
@@ -161,11 +164,11 @@ describe App do
       book = Book.new('2022-01-01', 'Publisher', 'Cover State')
       app.add_book(book)
       expect(file).to receive(:write).with(JSON.generate([{
-        'id' => book.id,
-        'publish_date' => '2022-01-01',
-        'publisher' => 'Publisher',
-        'cover_state' => 'Cover State'
-      }]))
+                                                           'id' => book.id,
+                                                           'publish_date' => '2022-01-01',
+                                                           'publisher' => 'Publisher',
+                                                           'cover_state' => 'Cover State'
+                                                         }]))
       app.save_books
     end
   end

@@ -91,7 +91,7 @@ describe App do
 
       context 'when the file content is valid JSON' do
         before do
-          allow(JSON).to receive(:parse).and_return([{'title' => 'Title', 'color' => 'Color'}])
+          allow(JSON).to receive(:parse).and_return([{ 'title' => 'Title', 'color' => 'Color' }])
         end
 
         it 'loads labels from the file' do
@@ -117,10 +117,6 @@ end
 
 # save_labels
 
-require 'rspec'
-require_relative 'app'
-require_relative 'label'
-
 describe App do
   let(:app) { App.new }
 
@@ -135,9 +131,9 @@ describe App do
       label = Label.new('Title', 'Color')
       app.add_label(label)
       expect(file).to receive(:write).with(JSON.generate([{
-        'title' => 'Title',
-        'color' => 'Color'
-      }]))
+                                                           'title' => 'Title',
+                                                           'color' => 'Color'
+                                                         }]))
       app.save_labels
     end
   end
