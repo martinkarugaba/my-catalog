@@ -24,7 +24,7 @@ describe Genre do
     end
 
     it 'adds an item to the genre' do
-      item = Item.new('2000-02-02', false) 
+      item = Item.new('2000-02-02', false)
       genre.add_item(item)
       expect(genre.items).to include(item)
     end
