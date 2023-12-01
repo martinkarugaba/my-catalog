@@ -5,7 +5,7 @@ class Game < Item
   attr_accessor :publish_date, :multiplayer, :last_played_at
 
   def initialize(publish_date, multiplayer, last_played_at)
-    super(publish_date)
+    super(publish_date, false) # pass false as the second argument
     @multiplayer = multiplayer
     @last_played_at = Date.parse(last_played_at)
   end
