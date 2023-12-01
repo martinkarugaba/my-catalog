@@ -27,9 +27,9 @@ describe Movie do
     end
   end
   describe Movie do
-  it '#can_be_archived? returns true if it is archived or silent, otherwise false' do
-    movie = Movie.new(true, '2004-03-04', false)
-    expect(movie.can_be_archived?).to be_truthy
+    it '#can_be_archived? returns true if it is archived or silent, otherwise false' do
+      movie = Movie.new(true, '2004-03-04', false)
+      expect(movie.can_be_archived?).to be_truthy
+    end
   end
-end
 end

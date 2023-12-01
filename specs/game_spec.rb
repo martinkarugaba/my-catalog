@@ -11,10 +11,10 @@ describe Game do
     end
   end
   describe '#publish_date' do
-  it 'return the date which game published at' do
-    expect(@game.publish_date).to eq('2000/10/25') # Adjust the format as needed
+    it 'return the date which game published at' do
+      expect(@game.publish_date).to eq('2000/10/25') # Adjust the format as needed
+    end
   end
-end
   describe '#mulitplayer' do
     it 'returning true if the game is multiplayer' do
       expect(@game.multiplayer).to be_truthy
@@ -26,9 +26,9 @@ end
     end
   end
   describe Game do
-  it '#can_be_archived? returns true if it is archived and last played more than 2 days ago' do
-    game = Game.new('2004-03-04', false, (Date.today - 3).to_s)
-    expect(game.can_be_archived?).to be_truthy
+    it '#can_be_archived? returns true if it is archived and last played more than 2 days ago' do
+      game = Game.new('2004-03-04', false, (Date.today - 3).to_s)
+      expect(game.can_be_archived?).to be_truthy
+    end
   end
-end
 end
