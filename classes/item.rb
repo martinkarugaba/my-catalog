@@ -1,13 +1,15 @@
 require 'date'
 
 class Item
-  attr_accessor :genres, :authors, :labels, :source, :publish_date, :archived
-  attr_reader :id
+  attr_reader :genres, :authors, :labels, :source, :publish_date, :archived, :id
 
-  def initialize(publish_date, archived)
+  def initialize(publish_date, archived: false)
     @id = Random.rand(1..1000)
-    @publish_date = publish_date
+    @publish_date = Date.parse(publish_date)
     @archived = archived
+    @genres = []
+    @authors = []
+    @labels = []
   end
 
   def label=(label)
@@ -30,12 +32,6 @@ class Item
   end
 
   def can_be_archived?
-    current_date = Date.today
-    @archived = if @publish_date.nil? || !@publish_date.is_a?(String)
-                  false
-                elsif (days_difference = (current_date - Date.parse(@publish_date)))
-                  years_difference = days_difference / 365
-                  years_difference >= 10
-                end
+    Date.today.year - @publish_date.year > 10
   end
 end
