@@ -1,4 +1,5 @@
 require_relative 'item'
+require 'rspec'
 
 class Movie < Item
   attr_accessor :silent
@@ -13,5 +14,3 @@ class Movie < Item
   end
 end
 
-movie = Movie.new(true, '2004-03-04', false)
-p movie.can_be_archived?

@@ -119,6 +119,8 @@ class App
     @movies.each_with_index do |movie, index|
       print "movie #{index + 1}. "
       print ''
+      print "id: #{movie.id}"
+      print ''
       print " Silent: #{movie.silent}, "
       print ""
       print " Publish Date #{movie.publish_date}."
@@ -182,6 +184,7 @@ class App
     save_labels
     save_music_albums
     save_genres
+    save_movies
   end
 
   def load_data
@@ -220,6 +223,28 @@ end
         }
       end
       file.write(JSON.generate(data))
+    end
+  end
+
+  def save_movies
+    File.open('data/movie.json', 'w') do |file|
+      data = @movies.map do |movi|
+        {
+          'id' => movi.id,
+          'silent' => movi.silent,
+          'publish_date' => movi.publish_date,
+        }
+      end
+      file.write(JSON.generate(data))
+    end
+  end
+
+  def load_movies
+     if File.exist?('data/movie.json')
+      data = JSON.parse(File.read('data/movie.json'))
+      @movies = data.map { |movi| Movie.new(movi['silent'], movi['publish_date'] ) }
+    else
+      []
     end
   end
 
