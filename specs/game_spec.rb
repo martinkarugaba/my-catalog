@@ -12,7 +12,7 @@ describe Game do
   end
   describe '#publish_date' do
     it 'return the date which game published at' do
-      expect(@game.publish_date).to eq('2000/10/25') # Adjust the format as needed
+      expect(@game.publish_date.strftime('%Y/%m/%d')).to eq('2000/10/25')
     end
   end
   describe '#mulitplayer' do
@@ -22,7 +22,7 @@ describe Game do
   end
   describe '#last_played_at' do
     it 'return the date which game last_played_at' do
-      expect(@game.last_played_at.to_s).to eq('2020-08-13') # Adjust the format as needed
+      expect(@game.last_played_at.to_s).to eq('2020-08-13')
     end
   end
   describe Game do
