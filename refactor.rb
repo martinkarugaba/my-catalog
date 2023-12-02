@@ -2,7 +2,6 @@ class Refactor
   def initialize(app)
     @app = app
   end
-
   def add_book
     print 'Book publisher: '
     publisher = gets.chomp
@@ -14,17 +13,14 @@ class Refactor
     @app.add_book(publisher, cover_state, publish_date)
     @app.add_label(label_name, label_color)
   end
-
   def ask_label_name
     print "Book's label name: "
     gets.chomp
   end
-
   def ask_label_color
     print "Book's label color: "
     gets.chomp
   end
-
   def ask_cover_state
     print 'Cover state of the book [good/bad]: '
     loop do

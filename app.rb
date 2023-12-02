@@ -2,14 +2,11 @@ require_relative 'classes/game'
 require_relative 'classes/author'
 require_relative 'classes/book'
 require_relative 'classes/label'
-require_relative 'classes/musicalbum'
+require_relative 'classes/music'
 require_relative 'classes/genre'
-require_relative 'classes/movie'
 require 'json'
-
 class App
-  attr_accessor :games, :authors, :labels, :books, :music_albums, :genres, :movies
-
+  attr_accessor :games, :authors, :labels, :books, :music_albums, :genres
   def initialize
     @games = []
     @authors = []
@@ -17,14 +14,11 @@ class App
     @books = []
     @music_albums = []
     @genres = []
-    @movies = []
   end
-
   def add_label(title, color)
     label = Label.new(title, color)
     @labels << label
   end
-
   def list_all_labels
     if @labels.empty?
       puts 'No labels added'
@@ -37,7 +31,6 @@ class App
       end
     end
   end
-
   def list_all_books
     if @books.empty?
       puts 'No books added'
@@ -54,16 +47,14 @@ class App
       end
     end
   end
-
   def add_book(publisher, cover_state, publish_date)
     book = Book.new(publish_date, publisher, cover_state)
     @books << book
     puts ' '
-    puts 'The book is added successfully ✅📖'
+    puts 'The book is added successfully :white_check_mark::book:'
     puts '--------------------------------------'
     puts ' '
   end
-
   def ask_multiplayer
     print 'Is the game multiplayer [Y/N] : '
     loop do
@@ -78,7 +69,6 @@ class App
       end
     end
   end
-
   def add_author
     puts 'Please add an author'
     print 'Enter the first name of the author : '
@@ -89,7 +79,6 @@ class App
     @authors << author
     puts ' Author is added successfully '
   end
-
   def add_game
     puts 'Please add a game'
     print 'Add the publish date of your game [yyyy/mm/dd] : '
@@ -101,34 +90,6 @@ class App
     @games << game
     puts 'The Game is added successfully'
   end
-
-  def add_movie
-    print 'Is movie Silent?(Y/N)'
-    silent = gets.chomp
-    silent == "Y.lowercase" ? silent = true : silent = false
-    print 'Published Date? : '
-    publish_date = gets.chomp
-    movie = Movie.new(silent, publish_date, archived=false)
-    @movies << movie
-    puts "Movie is added successfully"
-    puts ""
-  end
-
-  def list_all_movies
-    puts 'No Movies Added' if @movies.empty?
-    @movies.each_with_index do |movie, index|
-      print "movie #{index + 1}. "
-      print ''
-      print "id: #{movie.id}"
-      print ''
-      print " Silent: #{movie.silent}, "
-      print ""
-      print " Publish Date #{movie.publish_date}."
-      puts ''
-      puts ''
-    end
-  end
-
   def list_games
     puts 'No game added' if @games.empty?
     @games.each_with_index do |game, index|
@@ -138,14 +99,12 @@ class App
       print "Last Played at: #{game.last_played_at}\n"
     end
   end
-
   def list_authors
     puts 'No author added' if @authors.empty?
     @authors.each_with_index do |author, index|
       puts "Author #{index + 1} - Fullname: #{author.first_name} #{author.last_name}"
     end
   end
-
   def add_music_album
     puts 'Please add a music album'
     print 'Enter the genre of the music album: '
@@ -156,11 +115,10 @@ class App
     publish_date = gets.chomp
     music_album = MusicAlbum.new(genre, on_spotify, publish_date)
     @music_albums << music_album
-    puts 'The Music Album is added successfully ✅🎵'
+    puts 'The Music Album is added successfully :white_check_mark::musical_note:'
     puts '--------------------------------------'
     puts ' '
   end
-
   def list_all_music_albums
     puts 'List of all music albums:'
     @music_albums.each do |music_album|
@@ -168,15 +126,13 @@ class App
       puts '-------------------------'
     end
   end
-
   def list_all_genres
     puts 'List all genres:'
     @genres.each do |genre|
-      puts genre.name
+      puts "#{genre.name}"
       puts '............'
     end
   end
-
   def save_data
     save_games
     save_authors
@@ -184,9 +140,7 @@ class App
     save_labels
     save_music_albums
     save_genres
-    save_movies
   end
-
   def load_data
     load_games
     load_authors
@@ -195,7 +149,6 @@ class App
     load_music_albums
     load_genres
   end
-
   private
 
   def load_books
@@ -210,7 +163,7 @@ class App
   else
     @books = []
   end
-end
+  end
 
   def save_books
     File.open('data/book.json', 'w') do |file|
@@ -225,29 +178,6 @@ end
       file.write(JSON.generate(data))
     end
   end
-
-  def save_movies
-    File.open('data/movie.json', 'w') do |file|
-      data = @movies.map do |movi|
-        {
-          'id' => movi.id,
-          'silent' => movi.silent,
-          'publish_date' => movi.publish_date,
-        }
-      end
-      file.write(JSON.generate(data))
-    end
-  end
-
-  def load_movies
-     if File.exist?('data/movie.json')
-      data = JSON.parse(File.read('data/movie.json'))
-      @movies = data.map { |movi| Movie.new(movi['silent'], movi['publish_date'] ) }
-    else
-      []
-    end
-  end
-
   def load_labels
     if File.exist?('data/label.json')
       data = JSON.parse(File.read('data/label.json'))
@@ -256,7 +186,6 @@ end
       []
     end
   end
-
   def save_labels
     File.open('data/label.json', 'w') do |file|
       data = @labels.map do |label|
@@ -268,7 +197,6 @@ end
       file.write(JSON.generate(data))
     end
   end
-
   def save_games
     File.open('data/game.json', 'w') do |file|
       data = @games.map do |game|
@@ -281,7 +209,6 @@ end
       file.write(JSON.generate(data))
     end
   end
-
   def load_games
     if File.exist?('data/game.json')
       data = JSON.parse(File.read('data/game.json'))
@@ -290,7 +217,6 @@ end
       []
     end
   end
-
   def save_authors
     File.open('data/author.json', 'w') do |file|
       data = @authors.map do |author|
@@ -302,7 +228,6 @@ end
       file.write(JSON.generate(data))
     end
   end
-
   def load_authors
     if File.exist?('data/author.json')
       data = JSON.parse(File.read('data/author.json'))
@@ -311,7 +236,6 @@ end
       []
     end
   end
-
   def load_music_albums
     if File.exist?('data/music.json')
       data = JSON.parse(File.read('data/music.json'))
@@ -324,7 +248,6 @@ end
       []
     end
   end
-
   def save_music_albums
     File.open('data/music.json', 'w') do |file|
       data = @music_albums.map do |music_album|
@@ -338,12 +261,10 @@ end
       file.write(JSON.generate(data))
     end
   end
-
   def load_genres
     if File.exist?('data/genre.json')
       data = JSON.parse(File.read('data/genre.json'))
       @genres = data.map { |genre_data| Genre.new(genre_data['name']) }
-
       @music_albums.each do |music_album|
         genre_name = music_album.genre.name
         loaded_genre = @genres.find { |genre| genre.name == genre_name }
@@ -353,7 +274,6 @@ end
       []
     end
   end
-
   def save_genres
     File.open('data/genre.json', 'w') do |file|
       data = @genres.map do |genre|
@@ -365,16 +285,13 @@ end
       file.write(JSON.generate(data))
     end
   end
-
   def find_or_create_genre(name)
     existing_genre = @genres.find { |genre| genre.name == name }
     return existing_genre if existing_genre
-
     genre = Genre.new(name)
     @genres << genre
     genre
   end
-
   def ask_spotify
     print 'Is the music album on Spotify? [Y/N]: '
     loop do

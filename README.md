@@ -16,9 +16,13 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 [Ruby_Group_Capstone] <a name="about-project"></a>
+# 📖 [My Catalog App] <a name="about-project"></a>
 
-**[Ruby_Group_Capstone]** is a project that shows you how Object Oriented Programming can be used in Ruby
+### Video description
+
+[CLick to watch video](https://drive.google.com/file/d/1YLngZXukysB0ou5tGQvS_QXsk7qR7OG9/view?usp=sharing)
+
+**[My Catalog App]** is a project that shows you how Object Oriented Programming can be used in Ruby
 
 ## 🛠 Built With <a name="built-with">Ruby</a>
 
