@@ -20,7 +20,7 @@
 
 ### Video description
 
-[CLick to watch video](https://drive.google.com/file/d/1YLngZXukysB0ou5tGQvS_QXsk7qR7OG9/view?usp=sharing)
+[CLick to watch video](https://drive.google.com/file/d/1Vz2G2gYR2ExVewyO-k7asrC50JJICgyF/view?usp=sharing)
 
 **[My Catalog App]** is a project that shows you how Object Oriented Programming can be used in Ruby
 
