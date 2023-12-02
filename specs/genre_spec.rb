@@ -24,10 +24,10 @@ describe Genre do
     end
 
     it 'adds an item to the genre' do
-  item = Item.new('2000-02-02', archived: false)
-  genre.add_item(item)
-  expect(genre.items).to include(item)
-end
+      item = Item.new('2000-02-02', archived: false)
+      genre.add_item(item)
+      expect(genre.items).to include(item)
+    end
 
     it 'adds a music album to the genre' do
       music_album = MusicAlbum.new(genre, true, '2000-01-01')
